@@ -31,11 +31,13 @@ def main():
         "DeadLock": "c_code_snippets/DeadLock.c",
         "Simulate": "c_code_snippets/Simulate.c"
     }
-
+    
     # Show code button
     if st.button("Show Code"):
         file_path = code_files[selected_option]
         code = read_code_file(file_path)
+        download_filename = f"{selected_option}.c"
+        st.download_button("Download Code", data=code, file_name=download_filename)
         st.code(code, language='c')
 
 
