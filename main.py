@@ -12,26 +12,36 @@ def main():
 
     # Dropdown with 7 options
     selected_option = st.selectbox("Select an option",
-                                   ["RR","SJF","FCFS","PRIORITY","FIFO","LRU","Optimal page","Sequential","Indexed","Linked","MVT","MFT","DeadLock","Simulate"])
+                                   ["OBST","NQ","DIJ","PRIM","JOBS","KNAP","MERGE"])
+
+    #selected_option = st.selectbox("Select an option", ["RR","SJF","FCFS","PRIORITY","FIFO","LRU","Optimal page","Sequential","Indexed","Linked","MVT","MFT","DeadLock","Simulate"])
 
     # File paths for each option's code
     code_files = {
-        "RR": "c_code_snippets/RR.c",
-        "SJF": "c_code_snippets/SJF.c",
-        "FCFS": "c_code_snippets/FCFS.c",
-        "PRIORITY": "c_code_snippets/PRIORITY.c",
-        "FIFO": "c_code_snippets/FIFO.c",
-        "LRU": "c_code_snippets/LRU.c",
-        "Optimal": "c_code_snippets/Optimal.c",
-        "Sequential": "c_code_snippets/Sequential.c",
-        "Indexed": "c_code_snippets/Indexed.c",
-        "Linked": "c_code_snippets/Linked.c",
-        "MVT": "c_code_snippets/MVT.c",
-        "MFT": "c_code_snippets/MFT.c",
-        "DeadLock": "c_code_snippets/DeadLock.c",
-        "Simulate": "c_code_snippets/Simulate.c"
+        "OBST": "c_code_snippets/OBST.c",
+        "NQ": "c_code_snippets/NQ.c",
+        "DIJ": "c_code_snippets/DIJ.c",
+        "PRIM": "c_code_snippets/PRIM.c",
+        "JOBS": "c_code_snippets/JOBS.c",
+        "KNAP": "c_code_snippets/KNAP.c",
+        "MERGE": "c_code_snippets/MERGE.c"
+        # "RR": "c_code_snippets/RR.c",
+        # "SJF": "c_code_snippets/SJF.c",
+        # "FCFS": "c_code_snippets/FCFS.c",
+        # "PRIORITY": "c_code_snippets/PRIORITY.c",
+        # "FIFO": "c_code_snippets/FIFO.c",
+        # "LRU": "c_code_snippets/LRU.c",
+        # "Optimal": "c_code_snippets/Optimal.c",
+        # "Sequential": "c_code_snippets/Sequential.c",
+        # "Indexed": "c_code_snippets/Indexed.c",
+        # "Linked": "c_code_snippets/Linked.c",
+        # "MVT": "c_code_snippets/MVT.c",
+        # "MFT": "c_code_snippets/MFT.c",
+        # "DeadLock": "c_code_snippets/DeadLock.c",
+        # "Simulate": "c_code_snippets/Simulate.c"
+
     }
-    
+
     # Show code button
     if st.button("Show Code"):
         file_path = code_files[selected_option]
