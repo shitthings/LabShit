@@ -109,17 +109,7 @@ class Solution:
                         return cnt + 1
                 cnt += 1
     def find_next(self, node):
-        moves = {
-            0: [1, 3],
-            1: [0, 2, 4],
-            2: [1, 5],
-            3: [0, 4, 6],
-            4: [1, 3, 5, 7],
-            5: [2, 4, 8],
-            6: [3, 7],
-            7: [4, 6, 8],
-            8: [5, 7],
-        }
+        moves = {0: [1, 3],1: [0, 2, 4],2: [1, 5],3: [0, 4, 6],4: [1, 3, 5, 7],5: [2, 4, 8],6: [3, 7],7: [4, 6, 8],8: [5, 7],}
         results = []
         pos_0 = node.index(0)
         for move in moves[pos_0]:
@@ -128,11 +118,7 @@ class Solution:
             results.append(tuple(new_node))
         return results
 ob = Solution()
-matrix = [
-    [3, 1, 2],
-    [4, 7, 5],
-    [6, 8, 0]
-]
+matrix = [[3, 1, 2],[4, 7, 5],[6, 8, 0]]
 print(ob.solve(matrix))
 ```
 ```python
