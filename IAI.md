@@ -218,17 +218,14 @@ Monkey_on_box()
 Monkey_get_banana()
 ```
 ```python
-# working of Alpha-Beta Pruning
-# Initial values of Alpha and Beta
+# working of Alpha-Beta Pruning.Initial values of Alpha and Beta
 MAX, MIN = 1000, -1000
-# Returns optimal value for current player
-# (Initially called for root and maximizer)
+# Returns optimal value for current player.(Initially called for root and maximizer)
 def minimax(depth, nodeIndex, maximizingPlayer,
             values, alpha, beta):
     # Terminating condition. i.e
     # leaf node is reached
-    if depth == 3:
-        return values[nodeIndex]
+    if depth == 3:return values[nodeIndex]
     if maximizingPlayer:
         best = MIN
         # Recur for left and right children
@@ -238,8 +235,7 @@ def minimax(depth, nodeIndex, maximizingPlayer,
             best = max(best, val)
             alpha = max(alpha, best)
             # Alpha Beta Pruning
-            if beta <= alpha:
-                break
+            if beta <= alpha:break
         return best
     else:
         best = MAX
@@ -250,8 +246,7 @@ def minimax(depth, nodeIndex, maximizingPlayer,
             best = min(best, val)
             beta = min(beta, best)
             # Alpha Beta Pruning
-            if beta <= alpha:
-                break
+            if beta <= alpha:break
         return best
 # Driver Code
 if __name__ == "__main__":
@@ -299,17 +294,11 @@ def solveNQUtil(board, col):
     # If the queen can't be placed in any row in this column, then return false
     return False
 def solveNQ():
-    board = [
-        [0, 0, 0, 0],
-        [0, 0, 0, 0],
-        [0, 0, 0, 0],
-        [0, 0, 0, 0]
-    ]
+    board = [[0, 0, 0, 0],[0, 0, 0, 0],[0, 0, 0, 0],[0, 0, 0, 0]]
     if not solveNQUtil(board, 0):
         print("Solution does not exist")
         return False
     printSolution(board)
     return True
-# Driver program to test above function
 solveNQ()
 ```
