@@ -1,8 +1,7 @@
 ```c
 #include <stdio.h>
 #include <string.h>
-void main()
-{
+int main() {
     char frame[50][50], str[50][50];
     char flag[10];
     strcpy(flag, "flag");
@@ -10,32 +9,34 @@ void main()
     strcpy(esc, "esc");
     int i, j, k = 0, n;
     strcpy(frame[k++], "flag");
-    printf("Enter length of String : \n");
+    printf("Enter length of String : ");
     scanf("%d", &n);
     printf("Enter the String: ");
-    for (i = 0; i <= n; i++){
-        gets(str[i]);
+    for (i = 0; i <= n; i++) {// Use fgets instead of gets to avoid buffer overflow
+        fgets(str[i], sizeof(str[i]), stdin);
+        str[i][strcspn(str[i], "\n")] = '\0'; // Remove newline character
     }
-    printf("\nYou entered :\n");
-    for (i = 0; i <= n; i++){
+    printf("\nYou entered : ");
+    for (i = 0; i <= n; i++) {
         puts(str[i]);
     }
     printf("\n");
-    for (i = 1; i <= n; i++){
-        if (strcmp(str[i], flag) != 0 && strcmp(str[i], esc) != 0){
+    for (i = 1; i <= n; i++) {
+        if (strcmp(str[i], flag) != 0 && strcmp(str[i], esc) != 0) {
             strcpy(frame[k++], str[i]);
-        }else{
+        } else {
             strcpy(frame[k++], "esc");
             strcpy(frame[k++], str[i]);
         }
     }
     strcpy(frame[k++], "flag");
-    printf("------------------------------\n\n");
-    printf("Byte stuffing at sender side:\n\n");
-    printf("------------------------------\n\n");
-    for (i = 0; i < k; i++){
+    printf("------------------------------\n");
+    printf("Byte stuffing at sender side:\n");
+    printf("------------------------------\n");
+    for (i = 0; i < k; i++) {
         printf("%s\t", frame[i]);
     }
+    return 0;
 }
 ```
 ```c
