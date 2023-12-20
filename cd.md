@@ -169,73 +169,24 @@ int main() {
 ```c
 #include<stdio.h>
 #include<string.h>
-#define MAX_INPUT_LENGTH 100
-char input[MAX_INPUT_LENGTH];
-int i, len;
-int E();
-int EP();
-int T();
-int TP();
-int F();
+#define M 100
+char s[M];
+int i, l;
+int E(), EP(), T(), TP(), F();
 int main() {
-    printf("\n The RDP grammar is\n E->TEP \n EP->+TEP |@ \n T->FTP \n TP->*FTP | @ \n F->(E) | id\n Enter the string to be parsed: ");
-    scanf("%s", input);
+    printf("\nRDP grammar: E->TE', EP->+TE' |@, T->FT', TP->*FT' | @, F->(E) | id\nEnter string: ");
+    scanf("%s", s);
     i = 0;
-    len = strlen(input);
-    if (E() && (i == len))
-        printf("\nString is accepted\n");
-    else
-        printf("\nString is not accepted\n");
+    l = strlen(s);
+    if (E() && (i == l)) printf("\nAccepted\n");
+    else printf("\nNot Accepted\n");
     return 0;
 }
-int E() {
-    if (T() && EP())
-        return 1;
-    else
-        return 0;
-}
-int EP() {
-    if (input[i] == '+') {
-        i++;
-        if (T() && EP())
-            return 1;
-        else
-            return 0;
-    } else
-        return 1;
-}
-int T() {
-    if (F() && TP())
-        return 1;
-    else
-        return 0;
-}
-int TP() {
-    if (input[i] == '*') {
-        i++;
-        if (F() && TP())
-            return 1;
-        else
-            return 0;
-    } else
-        return 1;
-}
-int F() {
-    if (input[i] == '(') {
-        i++;
-        if (E()) {
-            if (input[i] == ')') {
-                i++;
-                return 1;
-            } else
-                return 0;
-        }
-    } else if (input[i] == 'i' && input[i + 1] == 'd') {
-        i += 2;
-        return 1;
-    } else
-        return 0;
-}
+int E() { return T() && EP(); }
+int EP() { return (s[i] == '+' && ++i && T() && EP()) || 1; }
+int T() { return F() && TP(); }
+int TP() { return (s[i] == '*' && ++i && F() && TP()) || 1; }
+int F() { return (s[i] == '(' && ++i && E() && (s[i++] == ')')) || (s[i] == 'i' && s[i + 1] == 'd' && (i += 2, 1)); }
 ```
 ```c
 #include <stdio.h>
