@@ -32,29 +32,20 @@ int main()
 ```
 ```c
 #include <stdio.h>
-#include <string.h>
 int isAccepted(char input[]) {
-    int len = strlen(input);
-    if (len < 3) {
-        return 0; 
-    }
-    for (int i = 0; i < len; i++) {
-        if (input[i] != 'a' && input[i] != 'b') {
-            return 0; 
-        }
-    }
-    return input[len - 3] == 'a'; 
+    int len = 0;
+    while (input[len] != '\0') len++;
+    if (len < 3) return 0;
+    for (int i = 0; i < len; i++)
+        if (input[i] != 'a' && input[i] != 'b') return 0;
+    return input[len - 3] == 'a';
 }
 int main() {
     char input[100];
     printf("Enter a string of 'a's and 'b's: ");
-    fgets(input, sizeof(input), stdin);
-    input[strcspn(input, "\n")] = 0; // remove newline character
-    if (isAccepted(input)) {
-        printf("String accepted!\n");
-    } else {
-        printf("String rejected!\n");
-    }
+    scanf("%99s", input);
+    if (isAccepted(input)) printf("String accepted!\n");
+    else printf("String rejected!\n");
     return 0;
 }
 ```
