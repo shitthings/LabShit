@@ -32,9 +32,9 @@ int main()
 ```
 ```c
 #include <stdio.h>
+#include <string.h>
 int isAccepted(char input[]) {
-    int len = 0;
-    while (input[len] != '\0') len++;
+    int len = strlen(input);
     if (len < 3) return 0;
     for (int i = 0; i < len; i++)
         if (input[i] != 'a' && input[i] != 'b') return 0;
