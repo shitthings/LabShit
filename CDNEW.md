@@ -71,3 +71,22 @@ int main() {
     return 0;
 }
 ```
+# 5
+```
+%{
+#include <stdio.h>
+int wordCount = 0;
+int lineCount = 0;
+%}
+%%
+[a-zA-Z]+   { wordCount++; }
+\n          { lineCount++; }
+.           { /* ignore other characters */ }
+%%
+int main() {
+    yylex();
+    printf("Number of words: %d\n", wordCount);
+    printf("Number of lines: %d\n", lineCount);
+    return 0;
+}
+```
