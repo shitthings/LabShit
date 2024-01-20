@@ -17,7 +17,6 @@ int main() {
 ```c
 #include <stdio.h>
 int main() {
-    int state = 0;
     char c;
     char lastThree[3] = {' ', ' ', ' '};
     printf("Enter a string of a's and b's: ");
@@ -26,12 +25,30 @@ int main() {
             printf("Invalid input: Please enter a string of a's and b's.\n");
             return 1;
         }
-        state = (c == 'a') ? 1 : 0;
         lastThree[0] = lastThree[1];
         lastThree[1] = lastThree[2];
         lastThree[2] = c;
     }
     printf((lastThree[0] == 'a') ? "Accepted\n" : "Rejected\n");
+    return 0;
+}
+```
+# 3
+```c
+#include <stdio.h>
+int main() {
+    char c;
+    char lastTwo[2] = {' ', ' '};
+    printf("Enter a string of 0's and 1's: ");
+    while ((c = getchar()) != '\n') {
+        if (c != '0' && c != '1') {
+            printf("Invalid input: Please enter a string of 0's and 1's.\n");
+            return 1;
+        }
+        lastTwo[0] = lastTwo[1];
+        lastTwo[1] = c;
+    }
+    printf((lastTwo[0] == '0'&lastTwo[1] == '0') ? "Accepted\n" : "Rejected\n");
     return 0;
 }
 ```
