@@ -53,3 +53,21 @@ int main() {
     return 0;
 }
 ```
+# 4
+```c
+#include <stdio.h>
+int main() {
+    int state_a = 0;
+    int state_b = 0;
+    char c;
+    while ((c = getchar()) != '\n') {
+        if (c != 'a' && c != 'b') {
+            printf("Invalid input: Please enter a string of a's and b's.\n");
+            return 1;
+        }
+        (c == 'a') ? state_a++ : state_b++;
+    }
+    printf((state_a % 3 == 0 && state_b % 2 == 0) ? "Accepted\n" : "Rejected\n");
+    return 0;
+}
+```
