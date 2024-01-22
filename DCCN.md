@@ -99,7 +99,7 @@ int main() {
     scanf("%s", data);
     for(i = 0; i < strlen(data); i++) {
         stuffedData[j++] = data[i];
-        count = (data[i] == '1') ? count + 1 : 0;
+        count += (data[i] == '1') ? 1 : 0;
         (count == 5) ? (count = 0, stuffedData[j++] = '0') : 0;
     }
     printf("Data after bit stuffing: %s\n", stuffedData);
