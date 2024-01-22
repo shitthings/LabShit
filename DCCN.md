@@ -88,3 +88,20 @@ if(f%w!=0)
 printf("\nAcknowledgement of above frames sent is received by sender\n");
 return 0;}
 ```
+# ..
+```c
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char data[100], stuffedData[200];
+    int i, count = 0, j = 0;
+    printf("Enter the data: ");
+    scanf("%s", data);
+    for(i = 0; i < strlen(data); i++) {
+        stuffedData[j++] = data[i];
+        count = (data[i] == '1') ? count + 1 : 0;
+        (count == 5) ? (count = 0, stuffedData[j++] = '0') : 0;
+    }
+    printf("Data after bit stuffing: %s\n", stuffedData);
+}
+```
