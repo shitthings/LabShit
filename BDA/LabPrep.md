@@ -69,3 +69,44 @@ hadoop fs -rm hdfs:/BigData/FileName
 ```sh
 stop-all.sh
 ```
+---
+### Assuming environment variables are set as follows:
+```sh
+export JAVA_HOME=/usr/java/default
+export PATH=${JAVA_HOME}/bin:${PATH}
+export HADOOP_CLASSPATH=${JAVA_HOME}/lib/tools.jar
+```
+### Compile WordCount.java and create a jar:
+```sh
+bin/hadoop com.sun.tools.javac.Main WordCount.java
+jar cf wc.jar WordCount*.class
+```
+### Assuming that:
+```sh
+/user/joe/wordcount/input - input directory in HDFS
+/user/joe/wordcount/output - output directory in HDFS
+```
+### Sample text-files as input:
+```sh
+bin/hadoop fs -ls /user/joe/wordcount/input/ /user/joe/wordcount/input/file01 /user/joe/wordcount/input/file02
+bin/hadoop fs -cat /user/joe/wordcount/input/file01
+Hello World Bye World
+bin/hadoop fs -cat /user/joe/wordcount/input/file02
+Hello Hadoop Goodbye Hadoop
+```
+### Run the application:
+```sh
+bin/hadoop jar wc.jar WordCount /user/joe/wordcount/input /user/joe/wordcount/output
+```
+### Output:
+```sh
+bin/hadoop fs -cat /user/joe/wordcount/output/part-r-00000
+```
+```sh
+Bye 1
+Goodbye 1
+Hadoop 2
+Hello 2
+World 2
+```
+
