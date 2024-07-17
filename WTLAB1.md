@@ -89,6 +89,7 @@ console.log(`${number1} ${operator} ${number2} = ${result}`);
 ```
 ## DataBase Table Creation
 ```php
+<?php
 $servername = "localhost"'
 $username = "root";
 $password = "";
