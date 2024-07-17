@@ -87,4 +87,77 @@ console.log(`${number1} ${operator} ${number2} = ${result}`);
   </book>
 </bookstore>
 ```
-## Program 4
+## DataBase Table Creation
+```php
+$servername = "localhost"'
+$username = "root";
+$password = "";
+$database = "dbsam";
+$conn = mysqli_connect($servername,$username,$password,$database);
+echo "connection was successfull";
+$sql = "create table 'table name' ('sno' int (5), 'name' varchar(12), primary key ('sno'))";
+?>
+```
+## DataBase Creation
+```php
+<?php
+$servername = "localhost"'
+$username = "root";
+$password = "";
+$conn = mysqli_connect($servername,$username,$password);
+$sql = "CREATE DATABASE dbsam";
+mysqli_query($conn,$sql);
+echo "connection was successfull";
+?>
+```
+## DataBase Connection
+```php
+<?php
+echo "welcome to connect to db";
+$servername = "localhost"'
+$username = "root";
+$password = "";
+$conn = mysqli_connect($servername,$username,$password);
+echo "connection was successfull";
+?>
+```
+## Java thing
+```java
+import javax.servlet.*;
+import java.io.*;
+public class Test extends GenericServlet{
+public void service(ServletRequest req, ServletResponse res) throws IOException, ServletException{
+PrintWriter o = res.getWriter();
+o.print("HELLO FROM SERVLET");
+}
+}
+```
+```xml
+<web-app>
+	<servlet>
+		<servlet-name>AFROZ</servlet-name>
+		<servlet-class>Test</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AFROZ</servlet-name>
+		<url-pattern>/Demo</url-pattern>
+	</servlet-mapping>
+</web-app>
+```
+## Angular JS
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AngularJS First App</title>
+  <script src="scripts/angular.js"></script>
+</head>
+<body>
+  <h1>Sample App</h1>
+  <div ng-app="myApp">
+    <p>Enter name: <input type="text" ng-model="name"></p>
+    <p>Hello <span ng-bind="name"></span></p>
+  </div>
+</body>
+</html>
+```
