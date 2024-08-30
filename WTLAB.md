@@ -78,13 +78,16 @@ p {color: red;}
 ```html
 <!DOCTYPE html>
 <html>
+
 <head>
- <link rel="stylesheet" href="ext.css">
+    <link rel="stylesheet" href="ext.css">
 </head>
+
 <body>
-<h1>This is a heading</h1>
-<p>This is a paragraph.</p>
+    <h1>This is a heading</h1>
+    <p>This is a paragraph.</p>
 </body>
+
 </html>
 ```
 #### CSS
@@ -1049,39 +1052,31 @@ tableBody.appendChild(row);
 <!DOCTYPE html>
 <html>
 <head>
-<body>
-<input type="number" name="first" id="first" step="any"/>
-<select id="ope">
-<option value="+">+</option>
-<option value="-">-</option>
-<option value="*">*</option>
-<option value="/">/</option>
-</select>
-<input type="number" name="second" id="second" step="any"/>
-<br/>
-<br/>
-<button onclick="cal()"> calculate</button>
-<input type="text" name="" id="res" readonly="" />
-</body>
+<body> <input type="number" name="first" id="first" step="any" /> <select id="ope">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select> <input type="number" name="second" id="second" step="any" /> <br /> <br /> <button onclick="cal()"> calculate</button> <input type="text" name="" id="res" readonly="" /> </body>
 <script type="text/javascript">
-function cal(){
-var opr1 = document.getElementById('first').value;
-var opr2 = document.getElementById('second').value;
-var ope = document.getElementById('ope').value;
-if (ope == '+') {
-var res = parseInt(opr1) + parseInt(opr2);
-}
-if (ope == '-') {
-var res = parseInt(opr1) - parseInt(opr2);
-}
-if (ope == '*') {
-var res = parseInt(opr1) * parseInt(opr2);
-}
-if (ope == '/') {
-var res = parseInt(opr1) / parseInt(opr2);
-}
-document.getElementById('res').value = res;
-}
+    function cal(){
+    var opr1 = document.getElementById('first').value;
+    var opr2 = document.getElementById('second').value;
+    var ope = document.getElementById('ope').value;
+    if (ope == '+') {
+    var res = parseInt(opr1) + parseInt(opr2);
+    }
+    if (ope == '-') {
+    var res = parseInt(opr1) - parseInt(opr2);
+    }
+    if (ope == '*') {
+    var res = parseInt(opr1) * parseInt(opr2);
+    }
+    if (ope == '/') {
+    var res = parseInt(opr1) / parseInt(opr2);
+    }
+    document.getElementById('res').value = res;
+    }
 </script>
 </html>
 ```

@@ -224,7 +224,7 @@ xsi:noNamespaceSchemaLocation="C:\wt\bookstore.xsd">
 ---
 ## SET-4
 ### a. Prepare a JSON file with Student information and display the content in HTML Table format.
-```
+```html
 <!DOCTYPE html>
 <html>
 <head>
